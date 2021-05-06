@@ -78,4 +78,34 @@ function cardMaker(cardObj) {
   const following = document.createElement('p');
   const bio = document.createElement('p');
 
+  // setting structure with appendChild
+  card.appendChild(image);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(name);
+  cardInfo.appendChild(username);
+  cardInfo.appendChild(location);
+  cardInfo.appendChild(profile);
+  profile.appendChild(address);
+  cardInfo.appendChild(followers);
+  cardInfo.appendChild(following);
+  cardInfo.appendChild(bio);
+
+  // setting the class names
+  card.classList.add('card');
+  cardInfo.classList.add('card-info');
+  name.classList.add('name');
+  username.classList('username');
+
+  // setting the text content 
+  name.textContent = cardObj.name;
+  username.textContent = cardObj.username;
+  location.textContent = cardObj.location;
+  profile.textContent = cardObj.profile;
+  followers.textContent = cardObj.followers;
+  following.textContent = cardObj.following;
+  bio.textContent = cardObj.bio;
+
+  return card
 }
+
+console.log(cardMaker(myGitHubInfo))
