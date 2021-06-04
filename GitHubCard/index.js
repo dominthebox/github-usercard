@@ -23,12 +23,10 @@ axios
 
 .then((res => {
   const id = res.data;
-
   cards.appendChild(cardMaker(id));
-  
 }))
 .catch((error) => {
-  console.log(error);
+  console.log('Houston we have a problem', error);
 })
 
 
@@ -52,10 +50,16 @@ const followersArray = [
 ];
 
 followersArray.forEach(function (follower) {
-  axios.get(`https://api.github.com/users/${follower}`).then((res) => {
+  axios.get(`https://api.github.com/users/${follower}`)
+  .then((res) => {
     const id = res.data;
-
     cards.appendChild(cardMaker(id));
+  })
+  .catch(error => {
+    console.log('Houston we have a problem', error)
+  })
+  .finally(() => {
+    console.log('Cleared for liftoff')
   })
 })
 
